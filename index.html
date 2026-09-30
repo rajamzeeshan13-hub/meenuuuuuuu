@@ -1,0 +1,785 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Meeenuuuu 💓</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ffeaf3;
+    color: #743b59;
+    overflow-x: hidden;
+}
+
+/* ---------- OPENING SCREEN ---------- */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background:
+        radial-gradient(circle at 20% 20%, #fff 0 3px, transparent 4px),
+        linear-gradient(135deg, #ffd5e7, #ead8ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease;
+}
+
+.open-content {
+    text-align: center;
+}
+
+.open-content p {
+    color: #a65b7d;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.envelope {
+    width: 250px;
+    height: 165px;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.envelope:hover {
+    transform: translateY(-10px) scale(1.04);
+}
+
+.env-body {
+    position: absolute;
+    inset: 0;
+    background: #ff91b9;
+    border-radius: 12px;
+    box-shadow: 0 20px 45px rgba(170, 70, 110, .25);
+}
+
+.env-body::before,
+.env-body::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 2;
+}
+
+.env-body::before {
+    left: 0;
+    border-width: 82px 125px 0 0;
+    border-color: #ffb0ca transparent transparent transparent;
+}
+
+.env-body::after {
+    right: 0;
+    border-width: 0 125px 82px 0;
+    border-color: transparent #ff7fab transparent transparent;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 90px solid #ff6f9f;
+    transform-origin: top;
+    transition: 1s;
+    z-index: 4;
+}
+
+.letter {
+    position: absolute;
+    width: 190px;
+    height: 125px;
+    background: white;
+    left: 30px;
+    top: 25px;
+    border-radius: 8px;
+    z-index: 1;
+    transition: 1s;
+    padding: 20px;
+    text-align: center;
+    color: #e45d91;
+    font-family: 'Dancing Script';
+    font-size: 24px;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope.open .letter {
+    transform: translateY(-100px);
+}
+
+.tap {
+    margin-top: 25px;
+    font-size: 17px !important;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.08); }
+}
+
+/* ---------- MAIN ---------- */
+
+#main {
+    display: none;
+    min-height: 100vh;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 70px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.8), transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,.7), transparent 20%),
+        linear-gradient(135deg, #ffd8e8, #e8d9ff, #dff7ff);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 3;
+}
+
+.small-title {
+    font-size: 18px;
+    color: #a26080;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(65px, 13vw, 125px);
+    color: #f45d96;
+    line-height: .95;
+    text-shadow: 4px 5px 0 white;
+    margin: 12px 0;
+}
+
+.subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(27px, 5vw, 45px);
+    color: #946ac4;
+}
+
+.hero-gif {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 35px;
+    border: 8px solid white;
+    margin: 35px auto 20px;
+    box-shadow: 0 20px 45px rgba(170, 80, 130, .2);
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.scroll {
+    margin-top: 35px;
+    color: #a26080;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    50% { transform: translateY(10px); }
+}
+
+/* ---------- MESSAGE ---------- */
+
+.section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section:nth-child(even) {
+    background: #fff7fb;
+}
+
+.card {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 45px 30px;
+    border-radius: 35px;
+    box-shadow: 0 20px 60px rgba(150, 80, 120, .12);
+}
+
+.card h2,
+.section h2 {
+    font-family: 'Dancing Script';
+    font-size: 55px;
+    color: #ec649a;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 2;
+    color: #80536b;
+}
+
+.message b {
+    color: #ef6098;
+}
+
+/* ---------- PHOTOS ---------- */
+
+.photos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.photo {
+    width: 180px;
+    height: 220px;
+    padding: 8px;
+    background: white;
+    box-shadow: 0 12px 30px rgba(140, 70, 110, .15);
+    border-radius: 12px;
+    transition: .4s;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.photo:nth-child(1) {
+    transform: rotate(-6deg);
+}
+
+.photo:nth-child(2) {
+    transform: rotate(3deg);
+}
+
+.photo:nth-child(3) {
+    transform: rotate(-3deg);
+}
+
+.photo:hover {
+    transform: rotate(0) scale(1.08);
+    z-index: 3;
+}
+
+/* ---------- COUNTDOWN / CAKE ---------- */
+
+.cake {
+    font-size: 90px;
+    margin: 20px;
+    animation: cake 1s ease-in-out infinite alternate;
+}
+
+@keyframes cake {
+    to { transform: translateY(-12px) rotate(3deg); }
+}
+
+.wishes {
+    font-family: 'Dancing Script';
+    font-size: 35px;
+    color: #9b68c5;
+}
+
+/* ---------- SURPRISE ---------- */
+
+.surprise-box {
+    max-width: 700px;
+    margin: auto;
+    background: linear-gradient(135deg, #fff, #fff0f7);
+    border-radius: 40px;
+    padding: 50px 30px;
+    box-shadow: 0 25px 70px rgba(160, 70, 120, .18);
+}
+
+.surprise-box h2 {
+    font-size: 60px;
+}
+
+button {
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff72a7, #b987ed);
+    color: white;
+    font-family: 'Poppins';
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(200, 100, 170, .3);
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+#secret {
+    display: none;
+    margin-top: 30px;
+    font-family: 'Dancing Script';
+    font-size: 32px;
+    color: #ec5c98;
+    line-height: 1.5;
+}
+
+/* ---------- FLOATING HEARTS ---------- */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 10;
+    animation: rise linear forwards;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ---------- MUSIC ---------- */
+
+.music {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 21px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    padding: 45px 20px;
+    text-align: center;
+    background: #ffe0ee;
+    color: #9c617c;
+}
+
+footer span {
+    color: #ef5d96;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<div id="opening">
+
+    <div class="open-content">
+
+        <p>💌 Someone has a little surprise for you...</p>
+
+        <div class="envelope" onclick="openEnvelope(this)">
+
+            <div class="letter">
+                For<br>
+                <b>Meeenuuuu 💓</b>
+            </div>
+
+            <div class="env-body"></div>
+            <div class="flap"></div>
+
+        </div>
+
+        <p class="tap">✨ Tap the envelope ✨</p>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN WEBSITE -->
+<div id="main">
+
+    <!-- MUSIC -->
+    <button class="music" onclick="toggleMusic()" id="musicBtn">🎵</button>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Today is a very special day ✨
+            </div>
+
+            <h1>Meeenuuuu</h1>
+
+            <div class="subtitle">
+                Happiest Birthday, cutie! 💗
+            </div>
+
+            <img
+                class="hero-gif"
+                src="8be8af400915bec32515d0745d8ad44a.gif"
+                alt="Cute birthday GIF"
+            >
+
+            <div class="scroll">
+                ↓ keep scrolling, birthday girl ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+    <section class="section">
+
+        <div class="card">
+
+            <h2>For my Meeenuuuu 🥹</h2>
+
+            <p class="message">
+
+                Today isn't just another day...
+
+                <br><br>
+
+              
+                <b>Happy birthday meraaaa betuuuu</b>. 😭💗
+
+                <br><br>
+
+               Happy birthday my love!!!! allah apko hmesha hasta muskurata or mera rkhay ameennnnn
+
+                <br><br>
+
+                May you get everything your heart secretly
+                wishes for... and then a little extra. 🌷✨
+
+                <br><br>
+
+                Because honestly...
+
+                <br>
+
+                <b>YOU DESERVE IT ALL. 💓</b>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTOS -->
+    <section class="section">
+
+        <h2>Little moments 📸</h2>
+
+        <p style="color:#9a6680;">
+            Replace these with your favorite pictures of Meeenuuuu 🥹
+        </p>
+
+        <div class="photos">
+
+            <div class="photo">
+                <img src="4B4D1B3C-CDE7-4B27-BE52-AD0635B6B5DC.jpg"
+                     alt="Memory 1">
+            </div>
+
+            <div class="photo">
+                <img src="37B78330-15BB-4417-B579-77358DD6FF86.jpg"
+                     alt="Memory 2">
+            </div>
+
+            <div class="photo">
+                <img src="IMG_3159.jpg"
+                     alt="Memory 3">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAKE -->
+    <section class="section">
+
+        <div class="card">
+
+            <h2>Make a wish 🎂</h2>
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <p class="wishes">
+                Close your eyes...<br>
+                make your biggest wish...<br>
+                and blow the candles. 🕯️✨
+            </p>
+
+            <br>
+
+            <button onclick="celebrate()">
+                ✨ I made my wish ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL SURPRISE -->
+    <section class="section">
+
+        <div class="surprise-box">
+
+            <h2>One last thing... 💌</h2>
+
+            <p style="margin:20px 0;color:#8b5970;">
+                There's a tiny secret message waiting for you.
+            </p>
+
+            <button onclick="showSecret()">
+                🎁 Open it
+            </button>
+
+            <div id="secret">
+
+                Meeenuuuu... 🥹💗
+
+                <br><br>
+
+                Happiest birthday meraa meenuuu bachaaa.Mashaallahhh mashaallahhhh bohtttt hiiii zyadaaa
+                <b>pyaariii</b> heinnn apppp orrr meriiiii toooo januuuuuu heinn naaaa orrr i loveeeee uuuuu sooooo muchhhh mera chaanddd😭💕
+
+                <br>
+
+                Hameshaaa khushhh rhennnn abaadddd rhennn orrr meriiii rhennnn 🌷
+
+                <br><br>
+
+                Happy Birthday, Meeenuuuu bachaaaa! 🎂💓
+
+                <br>
+
+                
+
+                <br><br>
+
+                <span style="font-size:42px;">
+                    🥹💗🧸🌸✨🎀
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with <span>♥</span> especially for Meeenuuuu
+        <br>
+        <small>Because ordinary birthday wishes were not enough. 😭💓</small>
+    </footer>
+
+</div>
+
+
+<!-- Hidden audio.
+     Replace the URL with your own music file if desired. -->
+<audio id="music" loop>
+    <source
+        src="https://cdn.pixabay.com/audio/2022/10/30/audio_946d4e4f7b.mp3"
+        type="audio/mpeg">
+</audio>
+
+
+<script>
+
+/* ---------- OPEN ENVELOPE ---------- */
+
+function openEnvelope(envelope) {
+
+    envelope.classList.add("open");
+
+    setTimeout(() => {
+
+        document.getElementById("opening").style.opacity = "0";
+
+        setTimeout(() => {
+
+            document.getElementById("opening").style.display = "none";
+            document.getElementById("main").style.display = "block";
+
+            createHearts();
+
+        }, 900);
+
+    }, 1200);
+}
+
+
+/* ---------- MUSIC ---------- */
+
+let playing = false;
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+    const btn = document.getElementById("musicBtn");
+
+    if (!playing) {
+
+        music.play().catch(() => {
+            alert("Add your favorite song to the audio source in the HTML 💗");
+        });
+
+        btn.innerHTML = "🔊";
+        playing = true;
+
+    } else {
+
+        music.pause();
+        btn.innerHTML = "🎵";
+        playing = false;
+
+    }
+}
+
+
+/* ---------- HEARTS ---------- */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    const hearts = [
+        "💗",
+        "💖",
+        "💕",
+        "💓",
+        "💞",
+        "💘",
+        "✨",
+        "🌸"
+    ];
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+function createHearts() {
+
+    setInterval(createHeart, 500);
+
+}
+
+
+/* ---------- WISH CELEBRATION ---------- */
+
+function celebrate() {
+
+    for (let i = 0; i < 50; i++) {
+
+        setTimeout(() => {
+
+            createHeart();
+
+        }, i * 60);
+
+    }
+
+    alert(
+        "✨ Wish locked in! ✨\n\n" +
+        "Now the universe has to make it happen. 💗"
+    );
+}
+
+
+/* ---------- SECRET ---------- */
+
+function showSecret() {
+
+    const secret = document.getElementById("secret");
+
+    secret.style.display = "block";
+
+    for (let i = 0; i < 35; i++) {
+
+        setTimeout(() => {
+            createHeart();
+        }, i * 80);
+
+    }
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
+```
